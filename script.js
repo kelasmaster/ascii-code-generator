@@ -16,9 +16,9 @@ function updateAsciiOutput() {
 function copyToClipboard() {
   const asciiOutput = document.getElementById("asciiOutput");
   navigator.clipboard.writeText(asciiOutput.textContent).then(() => {
-    alert("ASCII codes copied to clipboard!");
+    alert("&#65; &#83; &#67; &#73; &#73; &#32; &#99; &#111; &#100; &#101; &#115; &#32; &#99; &#111; &#112; &#105; &#101; &#100; &#32; &#116; &#111; &#32; &#99; &#108; &#105; &#112; &#98; &#111; &#97; &#114; &#100;!");
   }).catch(err => {
-    console.error("Failed to copy text: ", err);
+    console.error("&#70; &#97; &#105; &#108; &#101; &#100; &#32; &#116; &#111; &#32; &#99; &#111; &#112; &#121; &#32; &#116; &#101; &#120; &#116;: ", err);
   });
 }
 
