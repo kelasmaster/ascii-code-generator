@@ -1,8 +1,8 @@
 // script.js
 
-// Function to convert a string to ASCII codes
+// Function to convert a string to formatted ASCII codes (&<code>;)
 function convertToAscii(input) {
-  return input.split("").map(char => char.charCodeAt(0)).join(" ");
+  return input.split("").map(char => `&${char.charCodeAt(0)};`).join(" ");
 }
 
 // Function to update the ASCII output
