@@ -23,10 +23,9 @@ function convertToAscii(input) {
   return asciiParagraphs.join("<br/>");
 }
 
-// Function to escape HTML entities so they display as plain text
-function escapeHtml(text) {
-  return text.replace(/&/g, "&amp;")
-             .replace(/</g, "<")
+// Function to escape HTML entities except for &
+function escapeHtmlExceptAmp(text) {
+  return text.replace(/</g, "<")
              .replace(/>/g, ">")
              .replace(/"/g, "&quot;")
              .replace(/'/g, "&#039;");
@@ -37,9 +36,9 @@ function updateAsciiOutput() {
   const input = document.getElementById("sentenceInput").value;
   const asciiOutput = document.getElementById("asciiOutput");
 
-  // Convert input to ASCII and escape HTML entities
+  // Convert input to ASCII and escape HTML entities except &
   const asciiText = convertToAscii(input);
-  asciiOutput.textContent = escapeHtml(asciiText); // Use textContent to avoid rendering
+  asciiOutput.innerHTML = escapeHtmlExceptAmp(asciiText); // Use innerHTML to render <br/>
 }
 
 // Function to copy ASCII output to clipboard
