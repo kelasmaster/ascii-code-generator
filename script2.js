@@ -25,7 +25,7 @@ function convertToAscii(input) {
 
 // Function to escape HTML entities so they display as plain text
 function escapeHtml(text) {
-  return text.replace(/&/g, "&amp;")
+  return text.replace(/&/g, "&;")
              .replace(/</g, "<")
              .replace(/>/g, ">")
              .replace(/"/g, "&quot;")
