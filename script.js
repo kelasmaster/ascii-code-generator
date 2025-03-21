@@ -2,37 +2,14 @@
 
 // Function to convert a string to formatted ASCII codes (&#<code>;)
 function convertToAscii(input) {
-  // Split input into paragraphs (based on newlines)
-  const paragraphs = input.split("\n");
-
-  // Process each paragraph
-  const asciiParagraphs = paragraphs.map(paragraph => {
-    // Split paragraph into words
-    const words = paragraph.split(" ");
-
-    // Convert each word to ASCII codes without spaces between letters
-    const asciiWords = words.map(word => {
-      return word.split("").map(char => `&#${char.charCodeAt(0)};`).join("");
-    });
-
-    // Join words with &#32; for spaces
-    return asciiWords.join("&#32;");
-  });
-
-  // Join paragraphs with <br/>
-  return asciiParagraphs.join("<br/>");
+  return input.split("").map(char => `&#${char.charCodeAt(0)};`).join(" ");
 }
 
 // Function to update the ASCII output
 function updateAsciiOutput() {
   const input = document.getElementById("sentenceInput").value;
   const asciiOutput = document.getElementById("asciiOutput");
-
-  // Convert input to ASCII
-  const asciiText = convertToAscii(input);
-
-  // Display ASCII codes as plain text
-  asciiOutput.textContent = asciiText.replace(/<br\/>/g, "\n"); // Replace <br/> with newline for plain text display
+  asciiOutput.textContent = convertToAscii(input);
 }
 
 // Function to copy ASCII output to clipboard
