@@ -23,22 +23,16 @@ function convertToAscii(input) {
   return asciiParagraphs.join("<br/>");
 }
 
-// Function to escape HTML entities except for &
-function escapeHtmlExceptAmp(text) {
-  return text.replace(/</g, "<")
-             .replace(/>/g, ">")
-             .replace(/"/g, "&quot;")
-             .replace(/'/g, "&#039;");
-}
-
 // Function to update the ASCII output
 function updateAsciiOutput() {
   const input = document.getElementById("sentenceInput").value;
   const asciiOutput = document.getElementById("asciiOutput");
 
-  // Convert input to ASCII and escape HTML entities except &
+  // Convert input to ASCII
   const asciiText = convertToAscii(input);
-  asciiOutput.innerHTML = escapeHtmlExceptAmp(asciiText); // Use innerHTML to render <br/>
+
+  // Display ASCII codes as plain text
+  asciiOutput.textContent = asciiText.replace(/<br\/>/g, "\n"); // Replace <br/> with newline for plain text display
 }
 
 // Function to copy ASCII output to clipboard
